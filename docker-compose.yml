@@ -1,0 +1,32 @@
+version: '3'
+services:
+  web:
+    working_dir: /of-the-new-day
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - "./:/of-the-new-day"
+    command: bash -c "bin/rails s puma -b '0.0.0.0' -p 3000"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+
+    links:
+      - postgres:postgres
+
+  postgres:
+    image: postgres:13
+    container_name: db_of_the_new_day
+    volumes:
+      - $HOME/postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - '5432:5432'
+
+volumes:
+  postgres_data:
+    driver: local
+

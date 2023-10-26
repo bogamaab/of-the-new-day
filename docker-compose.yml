@@ -7,7 +7,7 @@ services:
       dockerfile: ./Dockerfile
     volumes:
       - "./:/of-the-new-day"
-    command: bash -c "bin/rails s puma -b '0.0.0.0' -p 3000"
+    command: bash -c "bin/rails s"
     ports:
       - "3000:3000"
     depends_on:

@@ -6,15 +6,17 @@ gem "rails", "~> 7.1.1"
 
 gem "bootsnap", require: false
 gem 'haml-rails', '~> 2.1'
+gem 'html2haml', '~> 2.3'
 # gem 'has_scope', '~> 0.8.2'
-gem 'hotwire-rails', '~> 0.1.3'
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem 'ransack', '~> 4.1'
 gem "redis", ">= 4.0.1"
 gem 'simple_form', '~> 5.3'
 gem "sprockets-rails"
-gem 'tailwindcss-rails', '~> 2.0', '>= 2.0.31'
+gem 'stimulus-rails'
+gem 'tailwindcss-rails', '>= 0'
+gem 'turbo-rails'
 
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
@@ -35,3 +37,5 @@ end
 group :development do
 end
 
+
+gem "importmap-rails", "~> 1.2"

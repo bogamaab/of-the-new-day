@@ -26,7 +26,17 @@ services:
     ports:
       - '5432:5432'
 
+  redis:
+    image: redis:7.2-alpine
+    command: redis-server
+    ports:
+      - "6379:6379"
+    volumes:
+      - 'redis_data:/data'
+
 volumes:
   postgres_data:
+    driver: local
+  redis_data:
     driver: local
 

@@ -4,3 +4,6 @@
 /config/master.key
 log
 tmp
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

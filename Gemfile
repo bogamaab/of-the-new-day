@@ -4,10 +4,13 @@ ruby "3.0.6"
 
 gem "rails", "~> 7.1.1"
 
+gem 'aasm'
+gem 'devise'
 gem "bootsnap", require: false
 gem 'haml-rails', '~> 2.1'
 gem 'html2haml', '~> 2.3'
-# gem 'has_scope', '~> 0.8.2'
+#gem 'has_scope', '~> 0.8.2'
+gem "importmap-rails", "~> 1.2"
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem 'ransack', '~> 4.1'
@@ -20,7 +23,7 @@ gem 'turbo-rails'
 
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 
 group :development, :test do
   gem 'capybara', '~> 3.39', '>= 3.39.2'
@@ -38,4 +41,3 @@ group :development do
 end
 
 
-gem "importmap-rails", "~> 1.2"

@@ -35,10 +35,9 @@ group :development, :test do
   gem 'rspec', '~> 3.12'
   gem 'rspec-html-matchers', '~> 0.10.0'
   gem 'rspec-rails', '~> 6.0', '>= 6.0.3'
+  gem 'selenium-webdriver'
   gem 'shoulda', '~> 4.0'
 end
 
 group :development do
 end
-
-

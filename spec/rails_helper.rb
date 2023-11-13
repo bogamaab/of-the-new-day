@@ -84,6 +84,48 @@ RSpec.configure do |config|
   # Rspec-HTML Helper
   config.include RSpecHtmlMatchers
 
+  #Devise Helper
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Devise::Test::IntegrationHelpers, type: :request
+
+  # Capybara
+  Capybara.javascript_driver = :capybara_webmock_chrome
+  Capybara.register_driver :capybara_webmock_chrome do |app|
+    caps = Selenium::WebDriver::Remote::Capabilities.chrome(
+      chromeOptions: { args: %w(headless disable-gpu no-sandbox --windown-size=1366,768--user-agent='Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0') },
+      loggingPrefs: { browser: 'ALL' }
+    )
+
+    Capybara::Selenium::Driver.new(nil, browser: :remote, url: "http://selenium:4444/wd/hub", desired_capabilities: caps).tap do |driver|
+      driver.browser.file_detector = -> args do
+        str = args.first.to_s
+        str if File.exist?(str)
+      end
+    end
+  end
+
+  ip = `/sbin/ip route|awk '/scope/ { print $9 }'`
+  ip.gsub!(/\n/, "")
+
+  config.around(:each, type: :feature) do |example|
+    Capybara.server = :webrick
+    old_host = Capybara.server_host
+    old_port = Capybara.server_port
+    old_app_host = Capybara.app_host
+
+    Capybara.server_host = ip
+    Capybara.server_port = 3001
+    Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
+
+    example.run
+
+    Capybara.server_host = old_host
+    Capybara.server_port = old_port
+    Capybara.app_host = old_app_host
+  end
+
   # Config Shoulda-Matcher to Rspec
   Shoulda::Matchers.configure do |config_shoulda|
     config_shoulda.integrate do |with|

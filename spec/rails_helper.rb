@@ -36,7 +36,24 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
+
+  config.before(:each) do
+    DatabaseCleaner[:redis].strategy = :deletion
+
+    if example.metadata[:js]
+      DatabaseCleaner[:active_record].strategy = :truncation
+    else
+      DatabaseCleaner[:active_record].strategy = :transaction
+    end
+
+    DatabaseCleaner[:active_record].start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner[:active_record].clean
+    DatabaseCleaner[:redis].clean
+  end
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false

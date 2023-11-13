@@ -27,7 +27,8 @@ gem "bcrypt", "~> 3.1.7"
 
 group :development, :test do
   gem 'capybara', '~> 3.39', '>= 3.39.2'
-  gem 'database_cleaner', '~> 2.0', '>= 2.0.2'
+  gem 'database_cleaner-active_record', '~> 2.1'
+  gem 'database_cleaner-redis', '~> 2.0'
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 3.2', '>= 3.2.1'

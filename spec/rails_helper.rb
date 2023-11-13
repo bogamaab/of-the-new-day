@@ -81,4 +81,14 @@ RSpec.configure do |config|
   # FactoryBot Helper
   config.include FactoryBot::Syntax::Methods
 
+  # Rspec-HTML Helper
+  config.include RSpecHtmlMatchers
+
+  # Config Shoulda-Matcher to Rspec
+  Shoulda::Matchers.configure do |config_shoulda|
+    config_shoulda.integrate do |with|
+      with.test_framework :rspec
+      with.library :rails
+    end
+  end
 end

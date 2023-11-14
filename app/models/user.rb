@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one :admin
   has_one :consultant
+  has_one :technician
 
   validates :first_name, :last_name, :address, presence: true
 
@@ -25,5 +26,9 @@ class User < ApplicationRecord
 
   def is_consultant?
     consultant.present?
+  end
+
+  def is_technician?
+    technician.present?
   end
 end

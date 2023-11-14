@@ -38,22 +38,6 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = false
 
-  config.before(:each) do
-    DatabaseCleaner[:redis].strategy = :deletion
-
-    if example.metadata[:js]
-      DatabaseCleaner[:active_record].strategy = :truncation
-    else
-      DatabaseCleaner[:active_record].strategy = :transaction
-    end
-
-    DatabaseCleaner[:active_record].start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner[:active_record].clean
-    DatabaseCleaner[:redis].clean
-  end
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
@@ -119,11 +103,27 @@ RSpec.configure do |config|
     Capybara.server_port = 3001
     Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
 
+    if example.metadata[:js]
+      DatabaseCleaner[:active_record].strategy = :truncation
+    else
+      DatabaseCleaner[:active_record].strategy = :transaction
+    end
+
     example.run
 
     Capybara.server_host = old_host
     Capybara.server_port = old_port
     Capybara.app_host = old_app_host
+  end
+
+  config.before(:each) do
+    DatabaseCleaner[:redis].strategy = :deletion
+    DatabaseCleaner[:active_record].strategy = :transaction
+    DatabaseCleaner[:active_record].start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner[:active_record].clean
   end
 
   # Config Shoulda-Matcher to Rspec

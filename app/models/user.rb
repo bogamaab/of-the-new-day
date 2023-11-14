@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one :admin
+
   validates :first_name, :last_name, :address, presence: true
 
   validates :identification_number, presence: true, uniqueness: true,
@@ -14,5 +16,9 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def is_admin?
+    admin.present?
   end
 end

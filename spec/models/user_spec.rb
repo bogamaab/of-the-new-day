@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let!(:admin_user) { create(:user, :with_admin) }
-  #let!(:consultant) { create(:user, :with_consultant) }
+  let!(:consultant_user) { create(:user, :with_consultant) }
   #let!(:technician) { create(:user, :with_technician) }
 
   describe 'validations' do
@@ -15,6 +15,11 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:password) }
     it { should validate_length_of(:identification_number).is_at_least(8).is_at_most(15) }
     it { should validate_length_of(:contact_number).is_at_least(7).is_at_most(10) }
+  end
+
+  describe 'association' do
+    it { should have_one(:admin) }
+    it { should have_one(:consultant) }
   end
 
   describe '#full_name' do
@@ -30,28 +35,28 @@ RSpec.describe User, type: :model do
       expect(admin_user.is_admin?).to be_truthy
     end
 
-  #   xit 'Should return false when user is consultant' do
-  #     expect(consultant.is_admin?).to be_falsey
-  #   end
+    it 'Should return false when user is consultant' do
+      expect(consultant_user.is_admin?).to be_falsey
+    end
 
   #   xit 'Should return false when user is technician' do
   #     expect(technician.is_admin?).to be_falsey
   #   end
   end
 
-  # describe '#is_consultant?' do
-  #   it 'Should return true when user is consultant' do
-  #     expect(consultant.is_consultant?).to be_truthy
-  #   end
+  describe '#is_consultant?' do
+    it 'Should return true when user is consultant' do
+      expect(consultant_user.is_consultant?).to be_truthy
+    end
 
-  #   it 'Should return false when user is admin' do
-  #     expect(admin.is_consultant?).to be_falsey
-  #   end
+    it 'Should return false when user is admin' do
+      expect(admin_user.is_consultant?).to be_falsey
+    end
 
   #   it 'Should return false when user is technician' do
   #     expect(technician.is_consultant?).to be_falsey
   #   end
-  # end
+  end
 
   # describe '#is_technician?' do
   #   it 'Should return true when user is technician' do

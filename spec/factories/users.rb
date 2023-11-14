@@ -24,4 +24,8 @@ FactoryBot.define do
   trait :with_admin do
     association :admin, factory: :admin
   end
+
+  trait :with_consultant do
+    association :consultant, factory: :consultant
+  end
 end

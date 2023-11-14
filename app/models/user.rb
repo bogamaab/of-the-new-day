@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :admin
+  has_one :consultant
 
   validates :first_name, :last_name, :address, presence: true
 
@@ -20,5 +21,9 @@ class User < ApplicationRecord
 
   def is_admin?
     admin.present?
+  end
+
+  def is_consultant?
+    consultant.present?
   end
 end

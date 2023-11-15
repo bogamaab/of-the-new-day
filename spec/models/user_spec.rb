@@ -21,6 +21,7 @@ RSpec.describe User, type: :model do
     it { should have_one(:admin) }
     it { should have_one(:consultant) }
     it { should have_one(:technician) }
+    it { should belong_to(:city) }
   end
 
   describe '#full_name' do

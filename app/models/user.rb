@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_one :admin
   has_one :consultant
   has_one :technician
+  belongs_to :city
 
   validates :first_name, :last_name, :address, presence: true
 

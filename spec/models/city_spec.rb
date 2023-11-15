@@ -6,6 +6,6 @@ RSpec.describe City, type: :model do
   end
 
   describe 'association' do
-    it { have_one(:user) }
+    it { have_many(:user) }
   end
 end

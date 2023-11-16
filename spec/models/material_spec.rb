@@ -7,5 +7,6 @@ RSpec.describe Material, type: :model do
 
   describe 'associations' do
     it { should belong_to(:type_material) }
+    it { should have_many(:visit) }
   end
 end

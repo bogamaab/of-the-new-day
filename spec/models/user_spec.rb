@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
     it { should validate_length_of(:contact_number).is_at_least(7).is_at_most(10) }
   end
 
-  describe 'association' do
+  describe 'associations' do
     it { should have_one(:admin) }
     it { should have_one(:consultant) }
     it { should have_one(:technician) }

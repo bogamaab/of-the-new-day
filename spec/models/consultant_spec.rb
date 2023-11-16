@@ -9,7 +9,7 @@ RSpec.describe Consultant, type: :model do
     it { should respond_to(:address) }
   end
 
-  describe 'association' do
+  describe 'associations' do
     it { should belong_to(:user) }
   end
 end

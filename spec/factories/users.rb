@@ -9,6 +9,7 @@ FactoryBot.define do
     password_confirmation { password }
     contact_number { Faker::Number.number(digits: 7).to_s }
     association :city, factory: :city
+    association :document_type, factory: :document_type
 
     trait :empty do
       first_name { nil }

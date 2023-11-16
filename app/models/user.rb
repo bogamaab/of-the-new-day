@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_one :consultant
   has_one :technician
   belongs_to :city
-  #belongs_to :document_type
+  belongs_to :document_type
 
   validates :first_name, :last_name, :address, presence: true
 

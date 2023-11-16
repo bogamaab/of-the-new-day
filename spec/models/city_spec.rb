@@ -7,5 +7,6 @@ RSpec.describe City, type: :model do
 
   describe 'associations' do
     it { have_many(:user) }
+    it { have_many(:client) }
   end
 end

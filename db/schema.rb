@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_16_203628) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_16_231558) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -128,7 +128,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_203628) do
     t.bigint "work_order_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "technician_id", null: false
     t.index ["client_id"], name: "index_visits_on_client_id"
+    t.index ["technician_id"], name: "index_visits_on_technician_id"
     t.index ["work_order_id"], name: "index_visits_on_work_order_id"
   end
 
@@ -152,6 +154,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_203628) do
   add_foreign_key "users", "cities"
   add_foreign_key "users", "document_types"
   add_foreign_key "visits", "clients"
+  add_foreign_key "visits", "technicians"
   add_foreign_key "visits", "work_orders"
   add_foreign_key "work_orders", "type_work_orders"
 end

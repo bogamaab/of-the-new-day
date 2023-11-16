@@ -5,4 +5,5 @@ class Client < ApplicationRecord
     format: { with: /\A[0-9]*\z/ }, length: { in: 7..10 }
 
   belongs_to :city
+  has_one :visit
 end

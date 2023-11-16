@@ -10,5 +10,6 @@ RSpec.describe WorkOrder, type: :model do
 
   describe 'associations' do
     it{ should belong_to(:type_work_order) }
+    it{ should have_one(:visit).optional }
   end
 end

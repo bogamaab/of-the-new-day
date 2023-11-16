@@ -15,4 +15,3 @@ FactoryBot.define do
     end
   end
 end
-#falta el work_order, type_work_order y reports

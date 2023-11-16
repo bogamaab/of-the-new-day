@@ -11,5 +11,6 @@ RSpec.describe Client, type: :model do
 
   describe 'associations' do
     it { should belong_to(:city) }
+    it { should have_one(:visit) }
   end
 end

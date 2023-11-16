@@ -7,5 +7,6 @@ RSpec.describe Equipment, type: :model do
 
   describe 'associations' do
     it { should belong_to(:type_equipment) }
+    it { should have_many(:visit) }
   end
 end

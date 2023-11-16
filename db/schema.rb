@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_16_195611) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_16_203628) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -118,6 +118,20 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_195611) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "visits", force: :cascade do |t|
+    t.string "timeslots"
+    t.datetime "start_visit"
+    t.datetime "end_visit"
+    t.boolean "reschedule", default: false
+    t.integer "quality", default: 0
+    t.bigint "client_id", null: false
+    t.bigint "work_order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_visits_on_client_id"
+    t.index ["work_order_id"], name: "index_visits_on_work_order_id"
+  end
+
   create_table "work_orders", force: :cascade do |t|
     t.string "node"
     t.string "failure_note"
@@ -137,5 +151,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_195611) do
   add_foreign_key "technicians", "users"
   add_foreign_key "users", "cities"
   add_foreign_key "users", "document_types"
+  add_foreign_key "visits", "clients"
+  add_foreign_key "visits", "work_orders"
   add_foreign_key "work_orders", "type_work_orders"
 end

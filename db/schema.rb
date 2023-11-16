@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_16_195010) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_16_195611) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_195010) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type_equipment_id"], name: "index_equipment_on_type_equipment_id"
+  end
+
+  create_table "materials", force: :cascade do |t|
+    t.string "amount"
+    t.bigint "type_material_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type_material_id"], name: "index_materials_on_type_material_id"
   end
 
   create_table "technicians", force: :cascade do |t|
@@ -125,6 +133,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_195010) do
   add_foreign_key "clients", "cities"
   add_foreign_key "consultants", "users"
   add_foreign_key "equipment", "type_equipments"
+  add_foreign_key "materials", "type_materials"
   add_foreign_key "technicians", "users"
   add_foreign_key "users", "cities"
   add_foreign_key "users", "document_types"

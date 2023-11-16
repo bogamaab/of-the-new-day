@@ -7,7 +7,7 @@ RSpec.describe TypeMaterial, type: :model do
     it { should validate_presence_of(:name) }
   end
 
-#  describe 'associations' do
-#    it { should have_many(:material) }
-#  end
+  describe 'associations' do
+    it { should have_many(:material) }
+  end
 end

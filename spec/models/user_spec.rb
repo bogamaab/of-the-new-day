@@ -22,6 +22,7 @@ RSpec.describe User, type: :model do
     it { should have_one(:consultant) }
     it { should have_one(:technician) }
     it { should belong_to(:city) }
+    #it { should belong_to(:document_type) }
   end
 
   describe '#full_name' do

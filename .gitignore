@@ -5,5 +5,8 @@
 log
 tmp
 
+/app/helpers
+/spec/helpers
+
 /app/assets/builds/*
 !/app/assets/builds/.keep

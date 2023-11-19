@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  def new
-    user_session_presenter
-  end
-
   def create
     user_session_presenter(sanatize_create_params[:identification_number], options: sanatize_create_params).validate
     if @user.errors.any?

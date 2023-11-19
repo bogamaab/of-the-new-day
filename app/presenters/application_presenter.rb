@@ -5,7 +5,7 @@ class ApplicationPresenter < SimpleDelegator
 
   def initialize(source, **options)
     @source = source
-    @optiones = options
+    @options = options
     super(source)
   end
 

@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @user = Users::SessionPresenter.new(nil, **options)
+    @user = Users::SessionPresenter.new(User.new, **{})
   end
 end

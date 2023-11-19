@@ -1,0 +1,15 @@
+es:
+  users:
+    sessions:
+      new:
+        login: 'Iniciar sesión'
+        alert: 'Por favor revisa los errores'
+        notice: 'Iniciaste sesión correctamente'
+        form:
+          fields:
+            identification_number: 'Número de identificación'
+            password: 'Contraseña'
+          placeholders:
+            identification_number: 'Tu número de identificación'
+            password: 'Tu contraseña'
+          submit: 'Iniciar sesión'

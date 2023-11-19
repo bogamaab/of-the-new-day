@@ -1,14 +1,19 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
+  def new
+    user_session_presenter
+    respond_to { |format| format.html { render 'home/index' } }
+  end
+
   def create
     user_session_presenter(sanatize_create_params[:identification_number], options: sanatize_create_params).validate
     if @user.errors.any?
-      flash.now[:alert] = t('users.sessions.new.alert')
-      respond_to { |format| format.html { render 'new' } }
+      flash_message('alert', 'new')
+      respond_to { |format| format.html { render 'home/index' } }
     else
       sign_in(:user, @user)
-      flash_message('alert', 'new')
+      flash_message('notice', 'new')
       respond_to { |format| format.html { redirect_to after_sign_in_path } }
     end
   end
@@ -38,11 +43,11 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def find_or_new_user(identification_number = nil)
-    User.find_by(identification_number: identification_number)
+    User.find_by(identification_number: identification_number) || User.new
   end
 
   def after_sign_in_path
-    root_path # aca hay que redireccionar a las rutas que corresponda por admin, esto en el presenter o services
+    visits_index_path
   end
 
   def after_sign_out_path

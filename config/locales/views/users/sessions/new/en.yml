@@ -1,0 +1,15 @@
+en:
+  users:
+    sessions:
+      new:
+        login: 'Log in'
+        alert: 'Please check the errors'
+        notice: 'You are logged in successfully'
+        form:
+          fields:
+            identification_number: 'Identification number'
+            password: 'Password'
+          placeholders:
+            identification_number: 'Your identification number'
+            password: 'Your password'
+          submit: 'Log in'

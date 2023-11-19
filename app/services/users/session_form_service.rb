@@ -17,7 +17,7 @@ module Users::SessionFormService
     password: 'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50'
   }
 
-  LABEL_TRANSLATION = nil # 'users.sessions.new.form.fields'
+  LABEL_TRANSLATION = 'users.sessions.new.form.fields'
 
-  PLACEHOLDER_TRANSLATION = nil # 'users.sessions.new.form.placeholders'
+  PLACEHOLDER_TRANSLATION = 'users.sessions.new.form.placeholders'
 end

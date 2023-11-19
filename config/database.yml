@@ -83,6 +83,7 @@ test:
 #
 production:
   <<: *default
-  database: of_the_new_day_production
-  username: of_the_new_day
+  database: <%= ENV["OF_THE_NEW_DAY_DATABASE_PRODUCTION"] %>
+  username: <%= ENV["OF_THE_NEW_DAY_DATABASE_USER"] %>
   password: <%= ENV["OF_THE_NEW_DAY_DATABASE_PASSWORD"] %>
+  host: <%= ENV["OF_THE_NEW_DAY_DATABASE_HOST"] %>

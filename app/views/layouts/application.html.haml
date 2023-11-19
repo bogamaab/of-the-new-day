@@ -2,14 +2,21 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title OfTheNewDay
-    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+
+    -#favicon_link_tag asset_path('favicon.ico')
+    %title= t('title')
+
+    %meta{:content => "width=device-width, initial-scale=1, height:device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no ", :name => "viewport"}/
+
+    -#%link{href: "https://fonts.googleapis.com/icon?family=Material+Icons", rel: "stylesheet"}
+
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "application"
+
   %body
-    %main.container.mx-auto.mt-28.px-5.flex
+    %main
       = yield
 
       %p{class: 'notice'}

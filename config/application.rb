@@ -22,6 +22,7 @@ module OfTheNewDay
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
+    config.encoding = 'utf-8'
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
@@ -33,8 +34,14 @@ module OfTheNewDay
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
+    config.eager_load_paths << Rails.root.join("lib")
+
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+    config.i18n.default_locale = :es
+    config.i18n.available_locales = [:es, :en, 'es-co']
+
     config.time_zone = "America/Bogota"
-    # config.eager_load_paths << Rails.root.join("extras")
+    config.active_record.default_timezone = :local
 
     # Don't generate system test files.
     config.generators.system_tests = nil

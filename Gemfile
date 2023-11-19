@@ -7,6 +7,7 @@ gem "rails", "~> 7.1.1"
 gem 'aasm'
 gem 'devise'
 gem "bootsnap", require: false
+gem 'foreman', '~> 0.87.2'
 gem 'haml-rails', '~> 2.1'
 gem 'html2haml', '~> 2.3'
 #gem 'has_scope', '~> 0.8.2'

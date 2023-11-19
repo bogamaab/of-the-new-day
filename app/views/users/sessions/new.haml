@@ -1,0 +1,16 @@
+.bg-gray-100.min-h-screen.flex.items-center.justify-center
+  = simple_for_for(@user, defaults: { wrapper: false, required: false, label: false },
+    url: @user.session_path, html: { method: :post, class: 'max-w-sm rounded-lg shadow-lg bg-white p-6 space-y-6 border border-gray-200 dark:border-gray-700' } ) do |user_form|
+    .space-y-2.text-center
+      %h1.text-3xl.font-bold Login
+    .space-y-4
+      .space-y-2
+      - @user.form.each do |attribute, info_attribute|
+       - @user.yield_if([:identification_number, :password].include?(attribute)) do
+         = user_form.label attribute, info_attribute[:label], label_html: { class: 'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70' }
+           = user_form.input attribute, info_attribute[:input], input_html: { class: 'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50' }
+      .flex.items-center.space-x-2
+        %hr.flex-grow.border-zinc-200.dark:border-zinc-700/
+        %span.text-zinc-400.dark:text-zinc-300.text-sm OR
+        %hr.flex-grow.border-zinc-200.dark:border-zinc-700/
+      = user_form.submit t('.form.submit')

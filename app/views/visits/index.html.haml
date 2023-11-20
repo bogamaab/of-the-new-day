@@ -1,5 +1,158 @@
-%div
-  %h1.font-bold.text-4xl Visits#index
-  %p Find me in app/views/visits/index.html.erb
-
-  = @visits.first
+.flex.justify-between.items-center.mb-4
+  %h1.text-lg.font-medium Transactions
+  %button.justify-center.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-gray-800.text-white.rounded-lg.flex.items-center.space-x-2.text-sm{:class => "hover:bg-primary/90", :type => "button"}
+    %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+      %path{:d => "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"}
+      %polyline{:points => "7 10 12 15 17 10"}
+      %line{:x1 => "12", :x2 => "12", :y1 => "15", :y2 => "3"}
+    %span Download
+.w-full.overflow-auto
+  %table.w-full.caption-bottom.text-sm
+    %thead{:class => "[&_tr]:border-b"}
+      %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+        %th.h-12.px-4.text-left.align-middle.font-medium.text-muted-foreground{:class => "[&:has([role=checkbox])]:pr-0"}
+          Date
+        %th.h-12.px-4.text-left.align-middle.font-medium.text-muted-foreground{:class => "[&:has([role=checkbox])]:pr-0"}
+          Description
+        %th.h-12.px-4.text-left.align-middle.font-medium.text-muted-foreground{:class => "[&:has([role=checkbox])]:pr-0"}
+          Category
+        %th.h-12.px-4.align-middle.font-medium.text-muted-foreground.text-right{:class => "[&:has([role=checkbox])]:pr-0"}
+          Amount
+        %th.h-12.px-4.text-left.align-middle.font-medium.text-muted-foreground{:class => "[&:has([role=checkbox])]:pr-0"}
+    %tbody{:class => "[&_tr:last-child]:border-0"}
+      %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Mar 12
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} WeWork
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %span.px-2.py-1.bg-red-200.text-red-800.rounded-md
+            %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+              %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+              %path{:d => "M7 7h.01"}
+            Office
+        %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} $175.00
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %button{"aria-controls" => "radix-:r0:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+            %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+              %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %circle{:cx => "12", :cy => "12", :r => "1"}
+                %circle{:cx => "12", :cy => "5", :r => "1"}
+                %circle{:cx => "12", :cy => "19", :r => "1"}
+      %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Mar 13
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} IKEA
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %span.px-2.py-1.bg-blue-200.text-blue-800.rounded-md
+            %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+              %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+              %path{:d => "M7 7h.01"}
+            Home
+        %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} $450.00
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %button{"aria-controls" => "radix-:r1:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+            %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+              %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %circle{:cx => "12", :cy => "12", :r => "1"}
+                %circle{:cx => "12", :cy => "5", :r => "1"}
+                %circle{:cx => "12", :cy => "19", :r => "1"}
+      %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Mar 14
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Home Depot
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %span.px-2.py-1.bg-blue-200.text-blue-800.rounded-md
+            %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+              %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+              %path{:d => "M7 7h.01"}
+            Home
+        %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} $200.00
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %button{"aria-controls" => "radix-:r2:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+            %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+              %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %circle{:cx => "12", :cy => "12", :r => "1"}
+                %circle{:cx => "12", :cy => "5", :r => "1"}
+                %circle{:cx => "12", :cy => "19", :r => "1"}
+      %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Mar 15
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Burger King
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %span.px-2.py-1.bg-green-200.text-green-800.rounded-md
+            %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+              %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+              %path{:d => "M7 7h.01"}
+            Food
+        %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} $15.00
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %button{"aria-controls" => "radix-:r3:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+            %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+              %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %circle{:cx => "12", :cy => "12", :r => "1"}
+                %circle{:cx => "12", :cy => "5", :r => "1"}
+                %circle{:cx => "12", :cy => "19", :r => "1"}
+      %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Mar 16
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} WeWork
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %span.px-2.py-1.bg-red-200.text-red-800.rounded-md
+            %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+              %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+              %path{:d => "M7 7h.01"}
+            Office
+        %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} $250.00
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %button{"aria-controls" => "radix-:r4:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+            %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+              %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %circle{:cx => "12", :cy => "12", :r => "1"}
+                %circle{:cx => "12", :cy => "5", :r => "1"}
+                %circle{:cx => "12", :cy => "19", :r => "1"}
+      %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Mar 17
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} IKEA
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %span.px-2.py-1.bg-blue-200.text-blue-800.rounded-md
+            %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+              %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+              %path{:d => "M7 7h.01"}
+            Home
+        %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} $350.00
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %button{"aria-controls" => "radix-:r5:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+            %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+              %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %circle{:cx => "12", :cy => "12", :r => "1"}
+                %circle{:cx => "12", :cy => "5", :r => "1"}
+                %circle{:cx => "12", :cy => "19", :r => "1"}
+      %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Mar 18
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Home Depot
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %span.px-2.py-1.bg-blue-200.text-blue-800.rounded-md
+            %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+              %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+              %path{:d => "M7 7h.01"}
+            Home
+        %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} $100.00
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %button{"aria-controls" => "radix-:r6:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+            %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+              %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %circle{:cx => "12", :cy => "12", :r => "1"}
+                %circle{:cx => "12", :cy => "5", :r => "1"}
+                %circle{:cx => "12", :cy => "19", :r => "1"}
+      %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Mar 19
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Burger King
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %span.px-2.py-1.bg-green-200.text-green-800.rounded-md
+            %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+              %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+              %path{:d => "M7 7h.01"}
+            Food
+        %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} $20.00
+        %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+          %button{"aria-controls" => "radix-:r7:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+            %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+              %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %circle{:cx => "12", :cy => "12", :r => "1"}
+                %circle{:cx => "12", :cy => "5", :r => "1"}
+                %circle{:cx => "12", :cy => "19", :r => "1"}

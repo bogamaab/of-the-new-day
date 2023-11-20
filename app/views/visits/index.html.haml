@@ -1,0 +1,153 @@
+.flex-grow.p-6.sm:w-full
+  .flex.justify-between.items-center.mb-4.h-screen.w-screen
+    %h1.text-lg.font-medium Visitas Programadas
+  .w-full.overflow-auto
+    %table.w-full.caption-bottom.text-sm
+      %thead{:class => "[&_tr]:border-b"}
+        %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+          %th.h-12.px-4.text-left.align-middle.font-medium.text-muted-foreground{:class => "[&:has([role=checkbox])]:pr-0"}
+            Intervalos de tiempo
+          %th.h-12.px-4.text-left.align-middle.font-medium.text-muted-foreground{:class => "[&:has([role=checkbox])]:pr-0"}
+            Direccion
+          %th.h-12.px-4.text-left.align-middle.font-medium.text-muted-foreground{:class => "[&:has([role=checkbox])]:pr-0"}
+            Estado de la visita
+          %th.h-12.px-4.align-middle.font-medium.text-muted-foreground.text-right{:class => "[&:has([role=checkbox])]:pr-0"}
+            Nombre Usuario
+          %th.h-12.px-4.text-left.align-middle.font-medium.text-muted-foreground{:class => "[&:has([role=checkbox])]:pr-0"}
+      %tbody{:class => "[&_tr:last-child]:border-0"}
+        %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} 7-13
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Av Siempre viva 6-15
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %span.px-2.py-1.bg-red-200.text-red-800.rounded-md
+              %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+                %path{:d => "M7 7h.01"}
+              Cancelada
+          %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} Homero Simpson
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %button{"aria-controls" => "radix-:r0:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+              %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+                %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                  %circle{:cx => "12", :cy => "12", :r => "1"}
+                  %circle{:cx => "12", :cy => "5", :r => "1"}
+                  %circle{:cx => "12", :cy => "19", :r => "1"}
+        %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} 7-13
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Carrera 69 # 7-20
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %span.px-2.py-1.bg-blue-200.text-blue-800.rounded-md
+              %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+                %path{:d => "M7 7h.01"}
+              Sin Iniciar
+          %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} Bruce Wayne
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %button{"aria-controls" => "radix-:r1:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+              %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+                %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                  %circle{:cx => "12", :cy => "12", :r => "1"}
+                  %circle{:cx => "12", :cy => "5", :r => "1"}
+                  %circle{:cx => "12", :cy => "19", :r => "1"}
+        %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} 14-15
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Ciudad Saltadilla
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %span.px-2.py-1.bg-blue-200.text-blue-800.rounded-md
+              %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+                %path{:d => "M7 7h.01"}
+              Sin Iniciar
+          %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} Mojo Jojo
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %button{"aria-controls" => "radix-:r2:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+              %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+                %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                  %circle{:cx => "12", :cy => "12", :r => "1"}
+                  %circle{:cx => "12", :cy => "5", :r => "1"}
+                  %circle{:cx => "12", :cy => "19", :r => "1"}
+        %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} 15-16
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Diagonal 56 Sur # 1-2
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %span.px-2.py-1.bg-green-200.text-green-800.rounded-md
+              %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+                %path{:d => "M7 7h.01"}
+              Finalizada
+          %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} Adam Jones
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %button{"aria-controls" => "radix-:r3:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+              %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+                %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                  %circle{:cx => "12", :cy => "12", :r => "1"}
+                  %circle{:cx => "12", :cy => "5", :r => "1"}
+                  %circle{:cx => "12", :cy => "19", :r => "1"}
+        %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} 15-16
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Av 7 # 30-32
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %span.px-2.py-1.bg-red-200.text-red-800.rounded-md
+              %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+                %path{:d => "M7 7h.01"}
+              Cancelada
+          %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} Sebastian Bach
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %button{"aria-controls" => "radix-:r4:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+              %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+                %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                  %circle{:cx => "12", :cy => "12", :r => "1"}
+                  %circle{:cx => "12", :cy => "5", :r => "1"}
+                  %circle{:cx => "12", :cy => "19", :r => "1"}
+        %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} 16-17
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Esc. 808 Arrabal Gabriela 8, Logroño, Leo 26888
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %span.px-2.py-1.bg-blue-200.text-blue-800.rounded-md
+              %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+                %path{:d => "M7 7h.01"}
+              Sin Iniciar
+          %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} Clara Tejeda Valencia
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %button{"aria-controls" => "radix-:r5:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+              %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+                %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                  %circle{:cx => "12", :cy => "12", :r => "1"}
+                  %circle{:cx => "12", :cy => "5", :r => "1"}
+                  %circle{:cx => "12", :cy => "19", :r => "1"}
+        %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} 17-18
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Esc. 355 Extramuros Luis Miguel Reséndez 30 Puerta 403, Albacete, Ast 99365
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %span.px-2.py-1.bg-blue-200.text-blue-800.rounded-md
+              %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+                %path{:d => "M7 7h.01"}
+              Sin Iniciar
+          %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} Vicente Madera Terán
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %button{"aria-controls" => "radix-:r6:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+              %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+                %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                  %circle{:cx => "12", :cy => "12", :r => "1"}
+                  %circle{:cx => "12", :cy => "5", :r => "1"}
+                  %circle{:cx => "12", :cy => "19", :r => "1"}
+        %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} 17-18
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"} Esc. 183 Jardines Gonzalo Barraza 6, Manresa, Mur 00772
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %span.px-2.py-1.bg-green-200.text-green-800.rounded-md
+              %svg.w-4.h-4.inline-block.mr-1{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %path{:d => "M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"}
+                %path{:d => "M7 7h.01"}
+              Finalizada
+          %td.p-4.align-middle.text-right{:class => "[&:has([role=checkbox])]:pr-0"} Inés Vásquez Arellano
+          %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
+            %button{"aria-controls" => "radix-:r7:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+              %button.inline-flex.items-center.justify-center.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.h-10.px-2.py-1.bg-transparent.text-black.hover:bg-gray-200.active:bg-gray-300.rounded{:type => "button"}
+                %svg.w-4.h-4{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                  %circle{:cx => "12", :cy => "12", :r => "1"}
+                  %circle{:cx => "12", :cy => "5", :r => "1"}
+                  %circle{:cx => "12", :cy => "19", :r => "1"}

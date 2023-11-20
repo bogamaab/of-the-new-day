@@ -1,0 +1,9 @@
+es:
+  visits:
+    index:
+      title: 'Visitas Programadas'
+      headers:
+        timeslots: 'Intervalo de tiempo'
+        address: 'Dirección'
+        visit_status: 'Estado'
+        client_name: 'Nombre del cliente'

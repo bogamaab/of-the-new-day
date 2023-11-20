@@ -18,6 +18,8 @@ class User < ApplicationRecord
   validates :contact_number, presence: true,
     format: { with: /\A[0-9]*\z/ }, length: { in: 7..10 }
 
+  delegate :id, to: :technician, prefix: true
+
   def full_name
     "#{first_name} #{last_name}"
   end

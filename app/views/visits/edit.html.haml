@@ -1,51 +1,58 @@
+= render "shared/header"
+
 .flex.flex-col.h-screen
   = simple_form_for @visit, defaults: { wrapper: false, required: false, label: false, error: false }, url: @visit.visit_path, html: { method: :put } do |visit_form|
     .mt-10.flex-grow.mb-10
-      .rounded-lg.border.bg-card.text-card-foreground.shadow-sm.max-w-2xl.mx-auto{"data-v0-t" => "card"}
+      .rounded-lg.border.bg-card.text-card-foreground.shadow-sm.max-w-2xl.mx-auto
         .flex.flex-col.p-6{:class => "space-y-1.5"}
           %h3.text-2xl.font-semibold.leading-none.tracking-tight
             = t('.title', id: @visit.id)
-        = visit_form.simple_fields_for :client do |client_form|
+          %p.text-sm.text-muted-foreground
+            = 'Esto es un texto de prueba'
+
           .p-6
             .space-y-4
               .grid.grid-cols-2.gap-4
-                .space-y-2
-                  = client_form.label :first_name, label: 'Nombres del Cliente', class: '.text-sm.font-medium.leading-none.peer-disabled:cursor-not-allowed.peer-disabled:opacity-70', required: false
-                  = client_form.input :first_name, as: :string, input_html: { value: @visit.client.first_name, disabled: true, class: '#first-name.flex.h-10.w-full.rounded-md.border.border-input.bg-background.px-3.py-2.text-sm.ring-offset-background.file:border-0.file:bg-transparent.file:text-sm.file:font-medium.placeholder:text-muted-foreground.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:cursor-not-allowed.disabled:opacity-50' }
-                .space-y-2
-                  = client_form.label :last_name, label: 'Apellidos del Cliente',class: '.text-sm.font-medium.leading-none.peer-disabled:cursor-not-allowed.peer-disabled:opacity-70', required: false
-                  = client_form.input :last_name, as: :string, input_html: { value: @visit.client.last_name, disabled: true, class: '#first-name.flex.h-10.w-full.rounded-md.border.border-input.bg-background.px-3.py-2.text-sm.ring-offset-background.file:border-0.file:bg-transparent.file:text-sm.file:font-medium.placeholder:text-muted-foreground.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:cursor-not-allowed.disabled:opacity-50' }
-              .space-y-2
-                = client_form.label :address, label: 'Dirección', class: '.text-sm.font-medium.leading-none.peer-disabled:cursor-not-allowed.peer-disabled:opacity-70', required: false
-                = client_form.input :address, as: :string, input_html: { value: @visit.client.address, disabled: true, class: '#email.flex.h-10.w-full.rounded-md.border.border-input.bg-background.px-3.py-2.text-sm.ring-offset-background.file:border-0.file:bg-transparent.file:text-sm.file:font-medium.placeholder:text-muted-foreground.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:cursor-not-allowed.disabled:opacity-50' }
-              .space-y-2
-                = client_form.label :account_number, label: 'Número de cuenta', class: '.text-sm.font-medium.leading-none.peer-disabled:cursor-not-allowed.peer-disabled:opacity-70', required: false
-                = client_form.input :account_number, as: :string, input_html: { value: @visit.client.account_number, disabled: true, class: '#email.flex.h-10.w-full.rounded-md.border.border-input.bg-background.px-3.py-2.text-sm.ring-offset-background.file:border-0.file:bg-transparent.file:text-sm.file:font-medium.placeholder:text-muted-foreground.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:cursor-not-allowed.disabled:opacity-50' }
-              .space-y-2
-                = client_form.label :contact_number, label: 'Número de contacto', class: '.text-sm.font-medium.leading-none.peer-disabled:cursor-not-allowed.peer-disabled:opacity-70', required: false
-                = client_form.input :contact_number, as: :string, input_html: { value: @visit.client.contact_number, disabled: true, class: '#email.flex.h-10.w-full.rounded-md.border.border-input.bg-background.px-3.py-2.text-sm.ring-offset-background.file:border-0.file:bg-transparent.file:text-sm.file:font-medium.placeholder:text-muted-foreground.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:cursor-not-allowed.disabled:opacity-50' }
-        = visit_form.simple_fields_for :material do |material_form|
+                = visit_form.simple_fields_for :client do |client_form|
+                  .space-y-2
+                    = client_form.label :first_name, label: 'Nombres del Cliente', class: 'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70', required: false
+                    = client_form.input :first_name, as: :string, input_html: { value: @visit.client.first_name, disabled: true, class: 'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50' }
+                  .space-y-2
+                    = client_form.label :last_name, label: 'Apellidos del Cliente',class: ' text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70', required: false
+                    = client_form.input :last_name, as: :string, input_html: { value: @visit.client.last_name, disabled: true, class: 'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50' }
+                  .space-y-2
+                    = client_form.label :address, label: 'Dirección', class: 'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70', required: false
+                    = client_form.input :address, as: :string, input_html: { value: @visit.client.address, disabled: true, class: 'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50' }
+                  .space-y-2
+                    = client_form.label :account_number, label: 'Número de cuenta', class: 'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70', required: false
+                    = client_form.input :account_number, as: :string, input_html: { value: @visit.client.account_number, disabled: true, class: 'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50' }
+                  .space-y-2
+                    = client_form.label :contact_number, label: 'Número de contacto', class: ' text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70', required: false
+                    = client_form.input :contact_number, as: :string, input_html: { value: @visit.client.contact_number, disabled: true, class: 'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50' }
           .p-6
             .space-y-4
               .space-y-2
-                = material_form.label :amount, label: 'Cantidad de material', class: '.text-sm.font-medium.leading-none.peer-disabled:cursor-not-allowed.peer-disabled:opacity-70', required: false
-                = material_form.input :amount, as: :string, input_html: { value: @visit.material.amount, disabled: true, class: '#first-name.flex.h-10.w-full.rounded-md.border.border-input.bg-background.px-3.py-2.text-sm.ring-offset-background.file:border-0.file:bg-transparent.file:text-sm.file:font-medium.placeholder:text-muted-foreground.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:cursor-not-allowed.disabled:opacity-50' }
-              = material_form.simple_fields_for :type_material do |type_material_form|
-                .space-y-2
-                  = type_material_form.label :code, label: 'Código del material', class: '.text-sm.font-medium.leading-none.peer-disabled:cursor-not-allowed.peer-disabled:opacity-70', required: false
-                  = type_material_form.input :code, as: :string, input_html: { value: @visit.material.type_material.code, disabled: true, class: '#first-name.flex.h-10.w-full.rounded-md.border.border-input.bg-background.px-3.py-2.text-sm.ring-offset-background.file:border-0.file:bg-transparent.file:text-sm.file:font-medium.placeholder:text-muted-foreground.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:cursor-not-allowed.disabled:opacity-50' }
-                .space-y-2
-                  = type_material_form.label :unit, label: 'Unidades del material', class: '.text-sm.font-medium.leading-none.peer-disabled:cursor-not-allowed.peer-disabled:opacity-70', required: false
-                  = type_material_form.input :unit, as: :string, input_html: { value: @visit.material.type_material.unit, disabled: true, class: '#first-name.flex.h-10.w-full.rounded-md.border.border-input.bg-background.px-3.py-2.text-sm.ring-offset-background.file:border-0.file:bg-transparent.file:text-sm.file:font-medium.placeholder:text-muted-foreground.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:cursor-not-allowed.disabled:opacity-50' }
-                .space-y-2
-                  = type_material_form.label :name, label: 'Nombre del material', class: '.text-sm.font-medium.leading-none.peer-disabled:cursor-not-allowed.peer-disabled:opacity-70', required: false
-                  = type_material_form.input :name, as: :string, input_html: { value: @visit.material.type_material.name, disabled: true, class: '#first-name.flex.h-10.w-full.rounded-md.border.border-input.bg-background.px-3.py-2.text-sm.ring-offset-background.file:border-0.file:bg-transparent.file:text-sm.file:font-medium.placeholder:text-muted-foreground.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:cursor-not-allowed.disabled:opacity-50' }
-        = visit_form.simple_fields_for :equipment do |equipment_form|
+                = visit_form.simple_fields_for :material do |material_form|
+                  = material_form.label :amount, label: 'Cantidad de material', class: ' text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70', required: false
+                  = material_form.input :amount, as: :string, input_html: { value: @visit.material.amount, disabled: true, class: 'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50' }
+                  = material_form.simple_fields_for :type_material do |type_material_form|
+                    .space-y-2
+                    = type_material_form.label :code, label: 'Código del material', class: ' text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70', required: false
+                    = type_material_form.input :code, as: :string, input_html: { value: @visit.material.type_material.code, disabled: true, class: 'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50' }
+                    .space-y-2
+                    = type_material_form.label :unit, label: 'Unidades del material', class: ' text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70', required: false
+                    = type_material_form.input :unit, as: :string, input_html: { value: @visit.material.type_material.unit, disabled: true, class: 'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50' }
+                    .space-y-2
+                    = type_material_form.label :name, label: 'Nombre del material', class: ' text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70', required: false
+                    = type_material_form.input :name, as: :string, input_html: { value: @visit.material.type_material.name, disabled: true, class: 'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50' }
+
           .p-6
             .space-y-4
               .space-y-2
-                = equipment_form.label :serial, label: 'Número serial del equipo', class: '.text-sm.font-medium.leading-none.peer-disabled:cursor-not-allowed.peer-disabled:opacity-70', required: false
-                = equipment_form.input :serial, as: :string, input_html: { value: @visit.equipment.serial, disabled: true, class: '#first-name.flex.h-10.w-full.rounded-md.border.border-input.bg-background.px-3.py-2.text-sm.ring-offset-background.file:border-0.file:bg-transparent.file:text-sm.file:font-medium.placeholder:text-muted-foreground.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:cursor-not-allowed.disabled:opacity-50' }
+                = visit_form.simple_fields_for :equipment do |equipment_form|
+                  = equipment_form.label :serial, label: 'Número serial del equipo', class: '.text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70', required: false
+                  = equipment_form.input :serial, as: :string, input_html: { value: @visit.equipment.serial, disabled: true, class: 'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50' }
+
           .flex.items-center.p-6
-            %button.inline-flex.items-center.justify-center.rounded-md.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.bg-primary.text-primary-foreground.h-10.px-4.py-2.w-full{:class => "hover:bg-primary/90", :type => "submit"}
+            %button.inline-flex.items-center.justify-center.rounded-md.text-sm.font-medium.ring-offset-background.transition-colors.focus-visible:outline-none.focus-visible:ring-2.focus-visible:ring-ring.focus-visible:ring-offset-2.disabled:pointer-events-none.disabled:opacity-50.bg-stone-900.text-zinc-200.h-10.px-4.py-2.w-full{ :type => "submit"}
               Editar

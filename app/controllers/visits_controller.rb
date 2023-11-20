@@ -3,6 +3,7 @@ class VisitsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @visits = Visit.where(technician_id: current_user.technician_id)
   end
 
   def show

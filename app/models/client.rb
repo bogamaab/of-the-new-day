@@ -6,4 +6,8 @@ class Client < ApplicationRecord
 
   belongs_to :city
   has_one :visit
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

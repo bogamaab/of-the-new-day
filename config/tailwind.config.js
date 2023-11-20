@@ -12,6 +12,15 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        whiteprimary: '#ECEFF4',
+        whitesecundary: '#E5E9F0',
+        whitetertiary: '#D8DEE9',
+        darkprimary: '#4C566A',
+        darksecundary: '#434C5E',
+        darktertiary: '#3B4252',
+        darkprincipal: '#2E3440',
+      },
     },
   },
   plugins: [

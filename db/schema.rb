@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_16_235436) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_20_002632) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -146,9 +146,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_235436) do
     t.bigint "type_work_order_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "visit_id"
     t.index ["type_work_order_id"], name: "index_work_orders_on_type_work_order_id"
-    t.index ["visit_id"], name: "index_work_orders_on_visit_id", unique: true
   end
 
   add_foreign_key "admins", "users"
@@ -165,5 +163,4 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_235436) do
   add_foreign_key "visits", "technicians"
   add_foreign_key "visits", "work_orders"
   add_foreign_key "work_orders", "type_work_orders"
-  add_foreign_key "work_orders", "visits"
 end

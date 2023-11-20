@@ -1,6 +1,5 @@
 class Visit < ApplicationRecord
-  validates_presence_of :timeslots, :start_visit, :end_visit, :quality,
-    :reschedule, presence: true
+  validates_presence_of :timeslots, :start_visit, :end_visit, :quality, presence: true
 
   belongs_to :client
   belongs_to :material

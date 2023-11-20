@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :work_order do
-    node { Faker::Alphanumeric.alphanumeric(max_limit: 10) }
+    node { Faker::Alphanumeric.alphanumeric(number: 10) }
     failure_note { Faker::Lorem.paragraph }
-    marker { Faker::Internet.mac_adderss }
+    marker { Faker::Alphanumeric.alphanumeric(number: 9) }
     closing_note { Faker::Lorem.paragraph }
 
     association :type_work_order, factory: :type_work_order

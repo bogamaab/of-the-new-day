@@ -5,7 +5,6 @@ RSpec.describe Visit, type: :model do
     it { should validate_presence_of(:timeslots) }
     it { should validate_presence_of(:start_visit) }
     it { should validate_presence_of(:end_visit) }
-    it { should validate_presence_of(:reschedule) }
     it { should validate_presence_of(:quality) }
   end
 

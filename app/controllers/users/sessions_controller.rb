@@ -47,7 +47,7 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def after_sign_in_path
-    visits_index_path
+    visits_path
   end
 
   def after_sign_out_path

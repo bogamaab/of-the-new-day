@@ -1,12 +1,15 @@
 .bg-gray-100.min-h-screen.flex.items-center.justify-center
   = simple_form_for(user, defaults: { wrapper: false, required: false, label: false }, url: user.session_path, html: { method: :post, class: 'max-w-sm rounded-lg shadow-lg bg-white p-6 space-y-6 border border-gray-200 dark:border-gray-700' }) do |user_form|
     .space-y-2.text-center
-      %h1.text-3xl.font-bold Login
+      %h1.text-3xl.font-bold
+        = t('.login')
     .space-y-4
       .space-y-2
       - user.form.each do |attribute, info_attribute|
         - user.yield_if([:identification_number, :password].include?(attribute)) do
           = user_form.label attribute, **info_attribute[:label]
           = user_form.input attribute, **info_attribute[:input]
+          - user.yield_if(info_attribute[:error].present?) do
+            %p{ class: 'text-xs text-red-600' }= info_attribute[:error]
       .flex.items-center.space-x-2
-        = user_form.submit 'Submit'
+        = user_form.button :submit, t('.form.submit'), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded'

@@ -1,2 +1,12 @@
 en:
   title: "SICTE S.A.S"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            identification_number:
+              not_found: 'Verify your identification number'
+            password:
+              invalid: 'Password is incorrect'
+              blank: 'Password is required'

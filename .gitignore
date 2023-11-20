@@ -4,6 +4,7 @@
 /config/master.key
 log
 tmp
+.idea
 
 /app/helpers
 /spec/helpers

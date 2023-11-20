@@ -38,11 +38,7 @@ module FormService
   end
 
   def form
-    f = array_iterator(self.class::ATTRIBUTES)
-    Rails.logger.info '*' * 100
-    Rails.logger.info f
-    Rails.logger.info '*' * 100
-    f
+    array_iterator(self.class::ATTRIBUTES)
   end
 
   def array_iterator(arr)

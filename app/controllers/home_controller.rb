@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     if current_user.present?
-      redirect_to visits_index_path
+      redirect_to visits_path
     else
       user_presenter
     end

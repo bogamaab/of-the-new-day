@@ -5,6 +5,17 @@ class VisitsController < ApplicationController
   def show
   end
 
+  def edit
+    resource = Visit.find(params[:id])
+    visit_presenter(resource)
+  end
+
   def update
+  end
+
+  private
+
+  def visit_presenter(visit, options = {})
+    @visit = VisitPresenter.new(visit, **options)
   end
 end

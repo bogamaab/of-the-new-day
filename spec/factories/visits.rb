@@ -14,7 +14,7 @@ FactoryBot.define do
 
     trait :empty do
       timeslots { nil }
-      start_visit { nil}
+      start_visit { nil }
       end_visit { nil }
       reschedule { nil }
       quality { nil }

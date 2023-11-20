@@ -1,0 +1,4 @@
+es:
+  visits:
+    edit:
+      title: 'Visita #%{id}'

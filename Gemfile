@@ -5,6 +5,7 @@ ruby "3.0.6"
 gem "rails", "~> 7.1.1"
 
 gem 'aasm'
+gem 'after_commit_everywhere', '~> 1.0'
 gem 'devise'
 gem "bootsnap", require: false
 gem 'foreman', '~> 0.87.2'

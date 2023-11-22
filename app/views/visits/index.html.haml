@@ -4,38 +4,36 @@
   .flex.justify-between.items-center.mb-4
     %h1.text-lg.font-medium= t('.title')
 
-  .w-full
-    %table.w-full.caption-bottom.text-sm
-      %thead{:class => "[&_tr]:border-b"}
-        %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
-          %th.h-12.px-4.text-center.align-middle.font-medium.text-muted-foreground.text-slate-600
-            =t('.headers.timeslots')
-          %th.h-12.px-4.text-center.align-middle.font-medium.text-muted-foreground.text-slate-600
-            =t('.headers.address')
-          %th.h-12.px-4.text-center.align-middle.font-medium.text-muted-foreground.text-slate-600
-            =t('.headers.visit_status')
-          %th.h-12.px-4.align-middle.font-medium.text-muted-foreground.text-center.text-slate-600
+  .relative.overflow-x-auto
+    %table.w-full.text-sm.text-left.rtl:text-right.text-gray-500.dark:text-gray-400
+      %thead
+        %tr
+          %th.px-6.py-3{scope: "col"}
             =t('.headers.client_name')
-          %th.h-12.px-4.text-center.align-middle.font-medium.text-muted-foreground.text-slate-600
+          %th.px-6.py-3{scope: "col"}
+            =t('.headers.address')
+          %th.px-6.py-3{scope: "col"}
+            =t('.headers.visit_status')
+          %th.px-6.py-3{scope: "col"}
+            %span.sr-only Edit
 
-      %tbody{:class => "[&_tr:last-child]:border-0"}
+      %tbody
         - @visits.each do |visit|
-          %tr.border-b.transition-colors{:class => "hover:bg-muted/50 data-[state=selected]:bg-muted"}
-            %td.p-4.align-center{:class => "[&:has([role=checkbox])]:pr-0"}= visit.timeslots
-            %td.p-4.align-center{:class => "[&:has([role=checkbox])]:pr-0"}= visit.client.address
-            %td.p-4.align-center{:class => "[&:has([role=checkbox])]:pr-0"}
+          %tr.bg-white.border-b.dark:bg-gray-800.dark:border-gray-700.hover:bg-gray-50.dark:hover:bg-gray-600
+            %th.px-6.py-4.font-medium.text-gray-900.whitespace-nowrap.dark:text-white= visit.client.full_name
+            %td.px-6.py-2= visit.client.address
+            %td.px-6.py-2
               - random_value = rand(0..2)
-              - tag_options = ['Sin Iniciar', 'Cancelada', 'Finalizada']
+              - tag_options = ['Asignado', 'Cancelada', 'Finalizada']
               - case tag_options[random_value]
               - when 'Cancelada'
                 %span.px-2.py-1.bg-red-200.text-red-800.rounded-md
                   = "Cancelada"
-              - when 'Sin Iniciar'
+              - when 'Asignado'
                 %span.px-2.py-1.bg-blue-200.text-blue-800.rounded-md
-                  = "Sin Iniciar"
+                  = "Asignado"
               - when "Finalizada"
                 %span.px-2.py-1.bg-green-200.text-green-800.rounded-md
                   = "Finalizada"
-            %td.p-4.align-middle.text-center{:class => "[&:has([role=checkbox])]:pr-0"}= visit.client.full_name
-            %td.p-4.align-middle{:class => "[&:has([role=checkbox])]:pr-0"}
-              %button{"aria-controls" => "radix-:r#{visit.id}:", "aria-expanded" => "false", "aria-haspopup" => "dialog", "data-state" => "closed", :type => "button"}
+            %td.px-6.py-2
+              = link_to 'Acciones', edit_visit_path(visit), class: "text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"

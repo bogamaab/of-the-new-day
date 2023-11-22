@@ -20,4 +20,5 @@
     %main
       = yield
       = render partial: 'shared/notifications', locals: { message: flash[:notice] }
+      = render partial: 'shared/alerts', locals: { message: flash[:alert] }
 

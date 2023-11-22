@@ -1,8 +1,6 @@
 class Visit < ApplicationRecord
   include AASM
 
-  enum status: [:assing, :progress, :complete, :cancel, :reschedule]
-
   validates_presence_of :timeslots, :start_visit, :end_visit, :quality, presence: true
 
   belongs_to :client
@@ -11,7 +9,7 @@ class Visit < ApplicationRecord
   belongs_to :work_order
   belongs_to :technician
 
-  aasm column: :status do
+  aasm column: :state do
     state :assign, initial: true
     state :progress
     state :cancel

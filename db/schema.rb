@@ -131,10 +131,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_222337) do
     t.bigint "technician_id", null: false
     t.bigint "equipment_id", null: false
     t.bigint "material_id", null: false
-    t.integer "status"
+    t.string "state"
     t.index ["client_id"], name: "index_visits_on_client_id"
     t.index ["equipment_id"], name: "index_visits_on_equipment_id"
     t.index ["material_id"], name: "index_visits_on_material_id"
+    t.index ["state"], name: "index_visits_on_state"
     t.index ["technician_id"], name: "index_visits_on_technician_id"
     t.index ["work_order_id"], name: "index_visits_on_work_order_id", unique: true
   end

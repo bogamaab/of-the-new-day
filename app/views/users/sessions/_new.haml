@@ -1,5 +1,5 @@
 .bg-gray-100.min-h-screen.flex.items-center.justify-center
-  = simple_form_for(user, defaults: { wrapper: false, required: false, label: false }, url: user.session_path, html: { method: :post, class: 'max-w-sm rounded-lg shadow-lg bg-white p-6 space-y-6 border border-gray-200 dark:border-gray-700' }) do |user_form|
+  = simple_form_for(user, defaults: { wrapper: false, required: false, label: false },data: {turbo: false} ,url: user.session_path, html: { method: :post, class: 'max-w-sm rounded-lg shadow-lg bg-white p-6 space-y-6 border border-gray-200 dark:border-gray-700' }) do |user_form|
     .space-y-2.text-center
       %h1.text-3xl.font-bold
         = t('.login')
